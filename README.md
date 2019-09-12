@@ -1,6 +1,6 @@
 # Analysis of Yelp Reviews using Big Data Frameworks on Google Cloud Platform
 
-This project is a part of the continuous assessment for Programming for Data Analytics of Masters in Data Analytics course at National College Of Ireland.
+This project is a part of the continuous assessment for Programming for Data Analytics module of Masters in Data Analytics course at National College Of Ireland.
 
 **PROJECT DETAILS**
 
