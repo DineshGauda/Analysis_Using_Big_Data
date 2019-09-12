@@ -1,0 +1,38 @@
+#Task 1
+CREATE EXTERNAL TABLE yelp_business_external (
+business_id string,
+business_name string,
+address string,
+city string,
+state string,
+latitude float,
+longitude float,
+stars float,
+review_count int, 
+is_open int,
+categories string 
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054'
+STORED AS TEXTFILE
+LOCATION 'gs://pda-yelp-bucket/input/business/';
+
+CREATE TABLE yelp_business (
+business_id string,
+business_name string,
+address string,
+city string,
+state string,
+latitude float,
+longitude float,
+stars float,
+review_count int, 
+is_open int,
+categories string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054'
+STORED AS TEXTFILE;
+
+INSERT OVERWRITE TABLE yelp_business select * from yelp_business_external;
+
+hive -e 'set hive.cli.print.header=true; set hive.resultset.use.unique.column.names=false; 
+SELECT business_name, review_count FROM yelp_business ORDER BY review_count DESC LIMIT 15;'>top_15_business_query_output.tsv

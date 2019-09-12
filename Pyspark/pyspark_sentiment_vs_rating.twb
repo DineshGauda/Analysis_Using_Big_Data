@@ -1,0 +1,2451 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20183.18.1018.1932                               -->
+<workbook original-version='18.1' source-build='2018.3.0 (20183.18.1018.1932)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='sentimentScore (pda_yelp)' inline='true' name='federated.0ky2tov1qt629817i6h8o1hyfyq3' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='googleapis.com/bigquery' name='bigquery.07wre410pdpfwf14cygcb0k4wk3k'>
+            <connection CATALOG='pda-project-2019' EXECCATALOG='pda-project-2019' REDIRECT_URI='urn:ietf:wg:oauth:2.0:oob' SCOPE='email profile https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/cloudplatformprojects.readonly' authentication='yes' bq-fetch-rows='' bq-fetch-tasks='' bq-large-fetch-rows='' bq-response-rows='' class='bigquery' connection-dialect='google-sql' project='pda-project' schema='pda_yelp' server='googleapis.com/bigquery' server-oauth='' username='dineshg1994@gmail.com' />
+          </named-connection>
+        </named-connections>
+        <relation connection='bigquery.07wre410pdpfwf14cygcb0k4wk3k' name='sentimentScore' table='[pda-project-2019.pda_yelp].[sentimentScore]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>business_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[business_name]</local-name>
+            <parent-name>[sentimentScore]</parent-name>
+            <remote-alias>business_name</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[sentimentScore]</parent-name>
+            <remote-alias>city</remote-alias>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_sentiment</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_sentiment]</local-name>
+            <parent-name>[sentimentScore]</parent-name>
+            <remote-alias>avg_sentiment</remote-alias>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rating</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rating]</local-name>
+            <parent-name>[sentimentScore]</parent-name>
+            <remote-alias>rating</remote-alias>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='sentiment' datatype='real' name='[Calculation_838514007822393344]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[avg_sentiment]/[Number of Records]' />
+      </column>
+      <column caption='rating' datatype='real' name='[Calculation_838514007822479361]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[rating]/[Number of Records]' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Avg Sentiment' datatype='real' name='[avg_sentiment]' role='measure' type='quantitative' />
+      <column caption='Business Name' datatype='string' name='[business_name]' role='dimension' type='nominal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Rating' datatype='real' name='[rating]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_838514007822393344]' derivation='Avg' name='[avg:Calculation_838514007822393344:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+      <column-instance column='[avg_sentiment]' derivation='Sum' name='[sum:avg_sentiment:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rating]' derivation='Sum' name='[sum:rating:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.446429' measure-ordering='alphabetic' measure-percentage='0.553571' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0ky2tov1qt629817i6h8o1hyfyq3].[sum:avg_sentiment:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0ky2tov1qt629817i6h8o1hyfyq3].[avg:Calculation_838514007822393344:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0ky2tov1qt629817i6h8o1hyfyq3]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0ky2tov1qt629817i6h8o1hyfyq3].[sum:rating:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:city:nk]' palette='cyclic_10_0' type='palette'>
+            <map to='#1ba3c6'>
+              <bucket>&quot;Ajax&quot;</bucket>
+            </map>
+            <map to='#1fae81'>
+              <bucket>&quot;Chester&quot;</bucket>
+            </map>
+            <map to='#2db7c0'>
+              <bucket>&quot;Belmont&quot;</bucket>
+            </map>
+            <map to='#2fbaa9'>
+              <bucket>&quot;Brooklin&quot;</bucket>
+            </map>
+            <map to='#38a452'>
+              <bucket>&quot;Cottage Grove&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Anjou&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Bedford&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Bonnyrigg and Lasswade&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Buena Vista&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Chandler&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Columbia Station&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;East McKeesport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Euclid&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Gastonia&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Guadalupe&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Homestead&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Kahnawake&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;La Prairie&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lavaltrie&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lyndhurst&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Mc Kees Rocks&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Middleburg&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Montréal&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Mt Lebanon&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;North Huntingdon&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Oakmont&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Paradise Valley&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Pleasant Hills&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Richmond Height&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Rural Ridge&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Saint-Marc-sur-Richelieu&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Savoy&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Sindelfingen&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;St-Leonard&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Sun Lakes&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Troy Township&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Waiblingen&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;White Oak&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Aberlady&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Bainbridge&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Blainville&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Brook Park&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Cave Creek&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;City of Edinburgh&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Creighton&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Enterprise&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Fort McDowell&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Glenshaw&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Hendersonville&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Indianola&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Kleinburg&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Las Vegas&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Livingston&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Mascouche&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Mentor&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Monona&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Morin-Heights&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Neuhausen&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Northbrook&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Ormstown&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Phoenix&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Rantoul&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Rocky River&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Saint-Jean-Sur-Richelieu&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Sainte-Marie&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Sewickley&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Squirrel Hill&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Streetsboro&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Tolleson&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Vaudreuil-Dorion&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;West Mifflin&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Wolfschlugen&quot;</bucket>
+            </map>
+            <map to='#4f7cba'>
+              <bucket>&quot;West Homestead&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Bay Village&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Bois-Des-Filion&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Brookpark&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Chagrin Falls&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Cleveland Heights&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Currie&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;East Cleveland&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Estérel&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Frazer&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Grafton&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Hinckley&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Irwin&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;L&apos;Île-Bizard&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;LasVegas&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lower Burrell&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Mayfield Heights&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Mentor-on-the-Lake&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Mont-Saint-Gregoire&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Mount Horeb&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Newbury&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Noyan&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Painesville&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Pincourt&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Remseck am Neckar&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Ross&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Saint-Lambert&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Sainte-Thérèse&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Sheffield&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;St-Clet&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Stuttgart-Vaihingen&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;toronto&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Verona&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Wexford&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;York&quot;</bucket>
+            </map>
+            <map to='#6ca932'>
+              <bucket>&quot;Crafton&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Auburn Township&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Bellevue&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Bradford&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Camargo&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Chateauguay&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Concord Twp&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;DeForest&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Edgewood&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Fairview&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Gibsonia&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Harmarville&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Huntingdon&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Kernen&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lachute&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Leetsdale&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Mahomet&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;McDonald&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Midland&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Montréal-Ouest&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Murrysville&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Old Port of Montreal&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Penicuik&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Pointe-Claire&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Richmond Hts&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Saint Joseph&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Sainte-Adele&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Schomberg&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;South Las Vegas&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Steinenbronn&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Tallmadge&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Unionville&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Warrensville Hts.&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Wilkins Township&quot;</bucket>
+            </map>
+            <map to='#7a73c0'>
+              <bucket>&quot;Spring Valley&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Anthem&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Bedford Heights&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Boucherville&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Burton&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Chardon&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Communauté-Urbaine-de-Montréal&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Dane&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;East Pittsburgh&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Fabreville&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Gates Mills&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Gullane&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Houston&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Kannapolis&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;La Salle&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Laveen&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;M7&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Mc Murray&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Middleburg Heights&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Montréal-Nord&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Mt. Lebanon&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;North Huntington&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Oakville&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Parma&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Plieningen&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Richmond Heights&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Russell&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Saint-Sauveur&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Scarborough&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Stallings&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Sun Prairie&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Turtle Creek&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Walton Hills&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Whtiby&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Allison Park&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Beachwood&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Boisbriand&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Brossard&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Chambly&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Cleveland Hghts.&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Cuyahoga Falls&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;East Gwillimbury&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Etna&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Freyburg&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Grand River&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Hiram&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Jefferson Hills&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;L&apos;Île-Perrôt&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Laval&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lower Lawrenceville&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Mayfield Village&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;MESA&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Mont-Saint-Hilaire&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Mount Lebanon&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Newhaven&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Oak Ridges&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Palgrave&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Pineville&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Repentigny&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Ross Township&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Saint-Laurent&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Sainte-Thérèse-de-Blainville&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Sheffield Lake&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;St-Jean-sur-Richelieu&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Summerlin&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Tottenham&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Villa Grove&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Whiitby&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Youngtown&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Avondale&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Bernhausen&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Bridgeville&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Casablanca&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Chomedey, Laval&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Don Mills&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Elyria&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Fitchburg&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Glendale Az&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Hemmingford&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Indian Lands&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Kirkland&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;las vegas&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Linden&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Maple Heights&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Medina&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Mississauga&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Moon Twp&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Nellis Afb&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;North York&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Orange Village&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Pheonix AZ&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Queensferry&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Robinson Township&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Saint-Hubert&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Sainte-Julie&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Scottsdale&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Springbrook&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Stow&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Thornhill&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Valley View&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;West Elizabeth&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Wilmerding&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;AGINCOURT&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Bainbridge Township&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Blawnox&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Cecil&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Clairton&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Crescent&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Dravosburg&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Essex&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Fort  Mill&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Godmanchester&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Herminie&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Inglewood&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Korntal-Münchingen&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lasalle&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Massey&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Mentor On the&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Monongahela&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Moss&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;New Eagle&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Northfield&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Oßweil&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Pickering&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Ratho&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Roosevelt&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Saint-Jean-sur-Richelieu&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Sainte-Marthe&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Shaker Heights&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;St Leonard&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Streetsville&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Tolono&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Vaughan&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;West View&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Woodbridge&quot;</bucket>
+            </map>
+            <map to='#a76dc2'>
+              <bucket>&quot;South Amherst&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Avon&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Ben Avon&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Brecksville&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Carefree&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Chesterland&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Cote Saint-Luc&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Dollard-Des-Ormeaux&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Elizabeth&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Filderstadt&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Glen Williams&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Heidelberg&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Indian Land&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Kingussie&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lakewood&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Liberty&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Mantua&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;McKnight&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Mirabel&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Moon&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Napierville&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Olmsted Township&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Pepper Pike&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Prévost&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;River Drive Park&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Saint-Eustache&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Sainte-Dorothée&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Scotland&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Spring Hill City View&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Stouffville&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Thorncliffe Park&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Urbana&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Wesley Chapel&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Willowdale&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Ambridge&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Beaconsfield&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Bolton&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Brunswick&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Champaign&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;clinton&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Dalgety Bay&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;East Liberty&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Etobicoke&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Ft. Mill&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Green Tree&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Hochdorf&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Joliette&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;L&apos;Île-Perrot&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Laval, Pont Viau&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lowesville&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Mc Donald&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Mesa&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Monticello&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Mount Royal&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Newmarket&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Oakdale&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Paoli&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Pitcairn&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Rexdale&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Rouses Point&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Saint-Lazare&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Salaberry-De-Valleyfield&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Sheffield Village&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;St-Jerome&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Sun City&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Trafford&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Vimont&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Whitby&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Auburn Twp&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Bellvue&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Bradford West Gwillimbury&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Candiac&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Chertsey&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Copley&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Delson&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Edimbourg&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Fairview Park&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Gifford&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Harrisburg&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Île-des-Soeurs&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Kernen im Remstal&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lacolle&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Leinfelden-Echterdingen&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Main Street&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;McFarland&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Millvale&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Montreal-West&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Musselburgh&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;North Randall&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Old Town&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Peninsula&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Port Credit&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Ridgeville&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Saint Laurent&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Sainte-Anne-de-Bellevue&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Schönaich&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;South Park&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Stetten&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Tega Cay&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;University Heights&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Waunakee&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Wilkinsburg&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;Dallas&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Aurora&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Brampton&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Canonsburd&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Coraopolis&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Ditzingen&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Edinburgh&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Farnham&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Gilbert&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Harrison City&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Imperial&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;King&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Lagrange&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Leonberg&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Malton&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;McKees Rocks&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Mint  Hill&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Montrose&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;N Las Vegas&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;North Ridgeville&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Olivos&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Penn Hills&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Portobello&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Rigaud&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Saint-Basile-Le-Grand&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Sainte-Anne-De-Bellevue&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Schwaikheim&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;South Park Township&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Stockbridge&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Tempe&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Upper Saint Clair&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Waxhaw&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Willoughby&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Avon Lake&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Berea&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Brentwood&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Carnegie&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Cheswick&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Elrama&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Finleyville&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Glendale&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Hemmingen&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Indian land&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Kirkcaldy&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Las  Vegas&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Library&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Maple&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;McMurray&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Missisauga&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Moon Township&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Nellis AFB&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;North Versailles&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Orange&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Peters Township&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Quartermile&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Robinson&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Saint-Henri&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Sainte-Genevieve&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Scottdale&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Stoughton&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Thornhil&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Valley City&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;West Akron&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Willowick&quot;</bucket>
+            </map>
+            <map to='#d669be'>
+              <bucket>&quot;Solon&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Baie-D&apos;urfe&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Bethel Park&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Broadview Heights&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Castle Shannon&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Churubusco&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Cramerton&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Dorval&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Emsworth&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Forest Hills&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Glenrothes&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Henderson&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Indian Trail&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Kirtland&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Las vegas&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Litchfield Park&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Markham&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Medina Township&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Mississuaga&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Moreland Hills&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Nellis Air Force Base&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;NORTH YORK&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Oregon&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Philo&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Ranlo&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Robinson Twp.&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Saint-Hyacinthe&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Sainte-Madeleine&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Seven Hills&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Springdale&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Stowe&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Tigre&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Vanier&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Windsor&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Arnold&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Beeton&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Boulder City&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Caledon&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Charlotte&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Concord&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Davidson&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;East York&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Fairlawn&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Haddington&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Hudson&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Kennedy Township&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Lachenaie&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Laveen Village&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Macedonia&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;McCandless&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Middlefield&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Montreal-Nord&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Munhall&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;North Las Vegas&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Ogden&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Parma Heights&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Plum&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Richmond Hil&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Russellton&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Saint-Sauveur-des-Monts&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Scaroborough&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Stanley&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Surprise&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Tuscola&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Warrensvile Heights&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Wickliffe&quot;</bucket>
+            </map>
+            <map to='#e4ba21'>
+              <bucket>&quot;Dollard-des-Ormeaux&quot;</bucket>
+            </map>
+            <map to='#e6343b'>
+              <bucket>&quot;Longueuil&quot;</bucket>
+            </map>
+            <map to='#e74b21'>
+              <bucket>&quot;Highland Heights&quot;</bucket>
+            </map>
+            <map to='#f075b0'>
+              <bucket>&quot;North Toronto&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Amherst&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Beauharnois&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Bonnyrigg&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Brunswick Hills&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Champlain&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;columbia station&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Dalkeith&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;East Mc Keesport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Etobiicoke&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Garfield Heights&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Greenfield Park&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Homer&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Juniper Green&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;L&apos;ile-Perrot&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Laval, Ste Dorothee&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Ludwigsburg&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Mc Farland&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Mesa AZ&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Montreal&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Mount Washington&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Nobleton&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Oakland&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Paradise&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Pittsburgh&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Richfield&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Roxboro&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Saint-Leonard&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;San Tan Valley&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Shorewood Hills&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;St-Lazare-de-Vaudreuil&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Sun City West&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Tremont&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Waddell&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Whitchurch-Stouffville&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Ahwatukee&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Baldwin&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Blue Diamond&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Brookline&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Central City&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Clark&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Cross Plains&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Dunfermline&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Esslingen&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Fort Mill&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Goodwood&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Inverkeithing&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Kornwestheim&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;LaSalle&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lorain&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Matthews&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Mentor On the Lake&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Monroeville&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Mount Albert&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;New Kensington&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Northside&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Ostfildern&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Piedmont&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Regional Municipality of York&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Rosemère&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Saint-Jérôme&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Sainte-Therese&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Shaler Township&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;St-Benoît de Mirabel&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Strongsville&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Tornto&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Venetia&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Westlake&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Woodmere&quot;</bucket>
+            </map>
+            <map to='#f43c63'>
+              <bucket>&quot;Lowell&quot;</bucket>
+            </map>
+            <map to='#f88113'>
+              <bucket>&quot;Georgetown&quot;</bucket>
+            </map>
+            <map to='#f8a61c'>
+              <bucket>&quot;Downtown&quot;</bucket>
+            </map>
+            <map to='#fa6692'>
+              <bucket>&quot;North Olmsted&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Avalon&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Beloeil&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Bratenahl&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Canonsburg&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Chester Township&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Cornelius&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Dollard-Des Ormeaux&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;El Mirage&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Fellbach&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Glassport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Hawthorne&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Independence&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;King City&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lake Wylie&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Les Coteaux&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Mansfield&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;McKeesport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Mint Hill&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Mooers&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;N. Las Vegas&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;North Royalton&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Olmsted Falls&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Peoria&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Presto&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Rillton&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Saint-Constant&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sainte-Catherine&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Schwieberdingen&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;South Queensferry&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Stoney Creek&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Terrebonne&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Upper St Clair&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Weddington&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Willoughby Hills&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Aspinwall&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Belleville&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Braddock&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Caledon East&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Châteauguay&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Concord Mills&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;De Forest&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Eastlake&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Fairport Harbor&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Gerlingen&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Hampton Township&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Huntersville&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Kent&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lachine&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lawrence&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Madison&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;McCandless Township&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Middleton&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Montreal-Ouest&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Munroe Falls&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;North Olmstead&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Oka&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Paw Creek&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Pointe-Aux-Trembles&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Richmond Hill&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sagamore Hills&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sainte-Adèle&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Scarobrough&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;South Euclid&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Ste-Therese-de-Blainville&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Swissvale&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Twinsburg&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Warrensville Heights&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;WICKLIFFE&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Aichwald&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Bath&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Böblingen&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Brooklyn&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Centre Island&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Cleveland&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Cuddy&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;East Ajax&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Esslingen am Neckar&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Fountain Hills&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Goodyear&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Higley&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Inverness&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;L&apos;assomption&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Lasswade&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Mayfield&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Mentor On The Lake&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Mont-Royal&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Mount Holly&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;New Town&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Nottingham&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Outremont&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Pierrefonds&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Remseck&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Rosemere&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Saint-Jerome&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Sainte-thérèse&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Sharpsburg&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;St-Bruno-de-Montarville&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Stuttgart&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Toronto&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Verdun&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Westmount&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Woodmere Village&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Average Rating vs Average Sentiment value</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='sentimentScore (pda_yelp)' name='federated.0ky2tov1qt629817i6h8o1hyfyq3' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0ky2tov1qt629817i6h8o1hyfyq3'>
+            <column caption='sentiment' datatype='real' name='[Calculation_838514007822393344]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[avg_sentiment]/[Number of Records]' />
+            </column>
+            <column caption='rating' datatype='real' name='[Calculation_838514007822479361]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[rating]/[Number of Records]' />
+            </column>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Calculation_838514007822393344]' derivation='Avg' name='[avg:Calculation_838514007822393344:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_838514007822479361]' derivation='Avg' name='[avg:Calculation_838514007822479361:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Sentiment' datatype='real' name='[avg_sentiment]' role='measure' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Rating' datatype='real' name='[rating]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Ajax&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Belmont&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Brooklin&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Chester&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Cottage Grove&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Crafton&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Dallas&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Dollard-des-Ormeaux&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Downtown&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Georgetown&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Highland Heights&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Longueuil&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Lowell&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;North Olmsted&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;North Toronto&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Solon&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;South Amherst&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Spring Valley&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;West Homestead&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[avg:Calculation_838514007822479361:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]' />
+            </encodings>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[avg:Calculation_838514007822393344:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.0ky2tov1qt629817i6h8o1hyfyq3].[avg:Calculation_838514007822479361:qk] + [federated.0ky2tov1qt629817i6h8o1hyfyq3].[avg:Calculation_838514007822393344:qk])</rows>
+        <cols>[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0ky2tov1qt629817i6h8o1hyfyq3].[:Measure Names]</field>
+            <field>[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:business_name:nk]</field>
+            <field>[federated.0ky2tov1qt629817i6h8o1hyfyq3].[none:city:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{11E0AA35-1EBA-487D-BC16-23E631C7C796}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>

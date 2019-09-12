@@ -1,0 +1,15 @@
+#Yelp Business Dataset
+Before cleaning 1,74,568 rows 13 columns
+After cleaning 1,68,123 rows 11 columns
+
+#Yelp Tip Dataset
+yelp_tip before cleaning and filtering 10,98,324 rows 5 columns
+yelp_tip after cleaning and filtering 1,40,256 rows 6 columns
+
+#Yelp Review Dataset
+Before cleaning and filtering 52,61,668 rows 9 columns
+After cleaning and filtering 6,31,867 rows 9 columns
+
+#Yelp user Dataset
+Before cleaning and filtering 13,26,100 rows 22 columns
+After cleaning and filtering 1,47,452 rows 22 columns
