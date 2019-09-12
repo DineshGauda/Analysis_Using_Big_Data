@@ -17,7 +17,7 @@ This project is a part of the continuous assessment for Programming for Data Ana
 In this project, the Yelp reviews dataset was explored and analyzed in order to find meaningful insights from these large amounts of reviews with so many dimensionalities. Big data frameworks were incorporated in this study in order to what is the general opinion of the customers and what they care which can be helpful in improving the reputation of the business, which will have a direct influence on their revenue. Here Google Cloud platform was used as the data processing platform. Hive, Spark, Pig and Map-reduce were used in this study and the output from the jobs was visualized using Tableau.
 
 **Tools & Languages Used:**
-1. Goggle Cloud Platform
+1. Google Cloud Platform
 2. MapReduce
 3. PySpark
 4. Hadoop
@@ -28,6 +28,8 @@ In this project, the Yelp reviews dataset was explored and analyzed in order to 
 9. Google File System
 10. Google Cloud Storage
 11. Tableau
+12. Excel
+13. R
 
 Note: 
 1. Extraction and Cleaning folder contains r scripts to extract data and for cleaning of the dataset.
