@@ -29,3 +29,11 @@ In this project the Yelp reviews dataset was explored and analyzed in order to f
 10. Google Cloud Storage
 11. Tableau
 
+Note: 
+1. Extraction and Cleaning folder contains r scripts to extract data and for cleaning of the dataset.
+2. GCP Setup folder contains document explaining steps for GCP account and cluset setup.
+3. Hive folder contains hive query along with the tableau visualization .twb files used to create visualization from output of hive query.
+4. Pig folder contains hive query along with the tableau visualization .twb files used to create visualization from output of Pig
+query.
+5. MapReduce folder contains MapReduce code along with the tableau visualization .twb files used to create visualization from output of MapReduce code.
+6. PySpark folder contains PySpark code along with the tableau visualization .twb files used to create visualization from output of PySpark code.
